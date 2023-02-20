@@ -16,7 +16,7 @@
                             <label for="exampleInputEmail1">Email address</label>
                             <div class="input-group">
                                 <div class="input-group-addon"><i class="ti-email"></i></div>
-                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" formControlName="email">
+                                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" formControlName="email" [readOnly]="usuario.google">
                             </div>
                         </div>
         
@@ -34,8 +34,8 @@
                 <h6 class="card-subtitle">Imagen del Usuario</h6>
 
                 <div class="text-center">
-                    <img [src]="usuario.imagenUrl" class="img-avatar">
-                    <img [src]="usuario.imagenUrl" class="img-avatar">
+                    <img *ngIf="!imgTemp" [src]="usuario.imagenUrl" class="img-avatar">
+                    <img *ngIf="imgTemp" [src]="imgTemp" class="img-avatar">
                 </div>
 
                 <input type="file"
