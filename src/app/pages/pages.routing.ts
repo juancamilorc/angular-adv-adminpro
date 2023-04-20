@@ -14,6 +14,7 @@ import { ProfileComponent } from './profile/profile.component';
 
 //Mantenimientos
 import { UsuariosComponent } from './mantenimientos/usuarios/usuarios.component';
+import { HospitalesComponent } from './mantenimientos/hospitales/hospitales.component';
 
 const routes: Routes = [
     { 
@@ -30,7 +31,8 @@ const routes: Routes = [
             { path: 'perfil', component: ProfileComponent, data: { titulo: 'Perfil del usuario'}},
 
             //Mantenimientos
-            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Usuario de Aplicación'}},
+            { path: 'usuarios', component: UsuariosComponent, data: { titulo: 'Mantenimiento de Usuarios'}},
+            { path: 'hospitales', component: HospitalesComponent, data: { titulo: 'Mantenimiento de Hospitales'}},
 
         ]
     },
