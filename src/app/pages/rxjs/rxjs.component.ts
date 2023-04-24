@@ -4,47 +4,32 @@ import { observable, Observable, retry } from 'rxjs';
 @Component({
   selector: 'app-rxjs',
   templateUrl: './rxjs.component.html',
-  styles: [
-  ]
+  styles: [],
 })
-export class RxjsComponent  {
-
-  constructor() { 
-    
+export class RxjsComponent {
+  constructor() {
     let i = -1;
 
-    const obs$ = new Observable<number>( observer => {
-
-
+    const obs$ = new Observable<number>((observer) => {
       const intervalo = setInterval(() => {
-        
         i++;
         observer.next(i);
 
-        if( i === 4) {
-          clearInterval( intervalo );
+        if (i === 4) {
+          clearInterval(intervalo);
           observer.complete();
         }
 
-        if( i === 2) {
+        if (i === 2) {
           observer.error('i llego al valor de 2');
         }
-
-      }, 1000)
-
+      }, 1000);
     });
 
-    obs$.pipe(
-      retry()
-    ).subscribe(
-      valor => console.log('Subs:',valor),
-      (err => console.warn('Error', err)),
+    obs$.pipe(retry()).subscribe(
+      (valor) => console.log('Subs:', valor),
+      (err) => console.warn('Error', err),
       () => console.info('Obs terminado')
     );
-
-    
-
   }
-
-
 }
