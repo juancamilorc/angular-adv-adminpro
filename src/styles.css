@@ -37,6 +37,10 @@
     width: 200px;
 }
 
+.w75{
+    width: 75px;
+}
+
 .profilephoto{
     border-radius: 100%;
     width: 40px;
